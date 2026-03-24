@@ -4,40 +4,63 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Asya & Robi Akademi</title>
-  <meta name="description" content="Asya & Robi Akademi resmi tanıtım sitesi. Eğitici videolar, sosyal medya bağlantıları, kuruluş hikâyesi ve daha fazlası burada." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta
+    name="description"
+    content="Asya & Robi Akademi resmi tanıtım sitesi. Eğitici videolar, sosyal medya bağlantıları, kuruluş hikâyesi ve daha fazlası burada."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
     :root {
       --bg: #fffaf4;
-      --surface: #ffffff;
-      --surface-2: #fff2dd;
+      --surface: rgba(255,255,255,0.88);
+      --surface-strong: #ffffff;
+      --surface-soft: #fff3df;
       --primary: #ff8a00;
       --primary-dark: #ea6a00;
       --secondary: #00bcd4;
-      --text: #1c2431;
-      --muted: #687385;
-      --border: rgba(28, 36, 49, 0.08);
-      --shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
-      --radius: 24px;
-      --max-width: 1200px;
+      --secondary-dark: #0997aa;
+      --text: #1e2430;
+      --muted: #6a7383;
+      --border: rgba(30, 36, 48, 0.08);
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+      --shadow-hover: 0 24px 60px rgba(0, 0, 0, 0.12);
+      --radius: 26px;
+      --max-width: 1240px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
+      font-family: "Poppins", sans-serif;
+      color: var(--text);
       background:
         radial-gradient(circle at top left, rgba(255, 138, 0, 0.14), transparent 30%),
-        radial-gradient(circle at top right, rgba(0, 188, 212, 0.12), transparent 25%),
-        var(--bg);
-      color: var(--text);
+        radial-gradient(circle at top right, rgba(0, 188, 212, 0.12), transparent 24%),
+        linear-gradient(180deg, #fffaf4 0%, #fffdf8 100%);
     }
 
-    img { max-width: 100%; display: block; }
-    a { text-decoration: none; color: inherit; }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
     .container {
       width: min(var(--max-width), calc(100% - 32px));
@@ -48,7 +71,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      backdrop-filter: blur(14px);
+      backdrop-filter: blur(16px);
       background: rgba(255, 250, 244, 0.82);
       border-bottom: 1px solid var(--border);
     }
@@ -65,21 +88,58 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      font-weight: 700;
-      font-size: 1.05rem;
+      min-width: 0;
     }
 
-    .brand-badge {
-      width: 52px;
-      height: 52px;
-      border-radius: 18px;
+    .brand-logo-box {
+      width: 72px;
+      height: 72px;
+      border-radius: 22px;
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
       display: grid;
       place-items: center;
+      overflow: hidden;
+      flex-shrink: 0;
+      padding: 8px;
+    }
+
+    .brand-logo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .brand-fallback {
+      display: none;
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
       background: linear-gradient(135deg, var(--primary), #ffb347);
       color: white;
-      box-shadow: var(--shadow);
-      font-size: 1.2rem;
+      align-items: center;
+      justify-content: center;
       font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-text {
+      min-width: 0;
+    }
+
+    .brand-title {
+      font-size: 1.08rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .brand-subtitle {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-top: 4px;
     }
 
     .nav-links {
@@ -87,78 +147,112 @@
       align-items: center;
       gap: 18px;
       flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .nav-links a {
       color: var(--muted);
-      font-weight: 500;
+      font-weight: 600;
       transition: 0.25s ease;
     }
 
-    .nav-links a:hover { color: var(--primary-dark); }
+    .nav-links a:hover {
+      color: var(--primary-dark);
+    }
 
     .nav-cta {
       padding: 12px 18px;
       border-radius: 999px;
-      background: var(--primary);
-      color: white !important;
-      font-weight: 600;
-      box-shadow: 0 12px 24px rgba(255, 138, 0, 0.25);
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff !important;
+      box-shadow: 0 12px 24px rgba(255, 138, 0, 0.24);
     }
 
     .hero {
-      padding: 72px 0 32px;
+      padding: 74px 0 28px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 28px;
-      align-items: center;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 26px;
+      align-items: stretch;
     }
 
-    .hero-card, .panel, .category-card, .story-card, .social-card, .contact-card, .video-card {
+    .glass-card,
+    .hero-card,
+    .panel,
+    .category-card,
+    .story-card,
+    .social-card,
+    .contact-card,
+    .video-card,
+    .highlight-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
     }
 
     .hero-card {
-      padding: 38px;
       position: relative;
       overflow: hidden;
+      padding: 42px;
+      min-height: 100%;
     }
 
-    .hero-card::after {
+    .hero-card::before {
       content: "";
       position: absolute;
-      width: 220px;
-      height: 220px;
-      background: rgba(0, 188, 212, 0.08);
-      right: -60px;
-      bottom: -60px;
+      inset: auto -80px -80px auto;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(0,188,212,0.18), transparent 70%);
       border-radius: 50%;
+      pointer-events: none;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 14px;
-      background: var(--surface-2);
+      padding: 9px 14px;
+      background: var(--surface-soft);
       color: var(--primary-dark);
       border-radius: 999px;
       font-size: 0.88rem;
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: 18px;
     }
 
-    h1, h2, h3 { margin: 0 0 12px; line-height: 1.15; }
-    h1 { font-size: clamp(2.2rem, 4vw, 4.2rem); }
-    h2 { font-size: clamp(1.6rem, 2vw, 2.4rem); }
-    h3 { font-size: 1.18rem; }
-    p { color: var(--muted); line-height: 1.8; margin: 0 0 14px; }
+    h1, h2, h3 {
+      margin: 0 0 12px;
+      line-height: 1.15;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 4vw, 4.2rem);
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 2vw, 2.4rem);
+    }
+
+    h3 {
+      font-size: 1.16rem;
+    }
+
+    p {
+      margin: 0 0 14px;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .lead {
+      font-size: 1.03rem;
+      max-width: 720px;
+    }
 
     .hero-actions {
       display: flex;
@@ -172,15 +266,15 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      padding: 14px 20px;
+      padding: 14px 22px;
       border-radius: 999px;
-      font-weight: 600;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      font-weight: 700;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
 
     .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
     }
 
     .btn-primary {
@@ -190,14 +284,16 @@
 
     .btn-secondary {
       background: #fff;
-      border: 1px solid var(--border);
       color: var(--text);
+      border: 1px solid var(--border);
     }
 
     .panel {
       padding: 28px;
-      display: grid;
-      gap: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
     }
 
     .mini-stats {
@@ -209,15 +305,23 @@
     .stat {
       padding: 18px;
       border-radius: 20px;
-      background: linear-gradient(180deg, #fff, #fffaf4);
+      background: linear-gradient(180deg, #ffffff, #fffaf4);
       border: 1px solid var(--border);
     }
 
     .stat strong {
-      font-size: 1.3rem;
       display: block;
-      margin-bottom: 6px;
+      font-size: 1.4rem;
       color: var(--primary-dark);
+      margin-bottom: 6px;
+    }
+
+    .panel-note {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(0,188,212,0.08);
+      color: var(--text);
+      font-weight: 500;
     }
 
     section {
@@ -226,42 +330,60 @@
 
     .section-head {
       display: flex;
-      align-items: end;
+      align-items: flex-end;
       justify-content: space-between;
       gap: 18px;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
     }
 
-    .categories, .stories, .socials {
+    .section-head p {
+      max-width: 720px;
+    }
+
+    .categories,
+    .stories,
+    .socials,
+    .highlights {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 18px;
     }
 
-    .category-card, .story-card, .social-card, .contact-card, .video-card {
+    .category-card,
+    .story-card,
+    .social-card,
+    .contact-card,
+    .video-card,
+    .highlight-card {
       padding: 24px;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
 
-    .category-card:hover, .story-card:hover, .social-card:hover, .video-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+    .category-card:hover,
+    .story-card:hover,
+    .social-card:hover,
+    .contact-card:hover,
+    .video-card:hover,
+    .highlight-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(255, 138, 0, 0.18);
     }
 
     .icon {
-      width: 56px;
-      height: 56px;
+      width: 58px;
+      height: 58px;
       border-radius: 18px;
       display: grid;
       place-items: center;
-      font-size: 1.4rem;
+      font-size: 1.45rem;
       margin-bottom: 14px;
       background: linear-gradient(135deg, rgba(255,138,0,0.14), rgba(0,188,212,0.16));
     }
 
     .video-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.15fr 0.85fr;
       gap: 20px;
       align-items: start;
     }
@@ -272,6 +394,7 @@
       border: 0;
       border-radius: 18px;
       margin-top: 14px;
+      background: #000;
     }
 
     .video-list {
@@ -285,30 +408,32 @@
       border-radius: 18px;
       background: #fffdfa;
       cursor: pointer;
-      transition: 0.2s ease;
+      transition: 0.22s ease;
     }
 
     .video-item:hover,
     .video-item.active {
       border-color: rgba(255, 138, 0, 0.35);
       background: #fff6e9;
+      transform: translateY(-2px);
     }
 
     .video-item small {
       display: block;
       color: var(--primary-dark);
+      font-weight: 700;
       margin-bottom: 4px;
-      font-weight: 600;
     }
 
     .story-card ul {
       margin: 12px 0 0;
-      padding-left: 20px;
+      padding-left: 18px;
       color: var(--muted);
       line-height: 1.8;
     }
 
-    .about-grid, .contact-grid {
+    .about-grid,
+    .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
@@ -318,12 +443,15 @@
       display: inline-block;
       margin-top: 10px;
       color: var(--primary-dark);
-      font-weight: 600;
+      font-weight: 700;
+    }
+
+    .contact-card p strong {
+      color: var(--text);
     }
 
     .footer {
-      padding: 28px 0 42px;
-      color: var(--muted);
+      padding: 30px 0 42px;
     }
 
     .footer-box {
@@ -332,21 +460,53 @@
       justify-content: space-between;
       gap: 18px;
       flex-wrap: wrap;
-      padding: 22px 26px;
-      background: var(--surface);
+      padding: 24px 26px;
+      background: var(--surface-strong);
       border-radius: 22px;
       border: 1px solid var(--border);
       box-shadow: var(--shadow);
     }
 
-    @media (max-width: 1024px) {
+    .footer-title {
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .footer-copy {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 1100px) {
       .hero-grid,
       .video-grid,
       .about-grid,
       .contact-grid {
         grid-template-columns: 1fr;
       }
-      .categories, .stories, .socials {
+
+      .categories,
+      .stories,
+      .socials,
+      .highlights {
         grid-template-columns: repeat(2, 1fr);
       }
     }
@@ -356,34 +516,69 @@
         align-items: flex-start;
         flex-direction: column;
       }
+
       .nav-links {
         gap: 12px;
       }
-      .categories, .stories, .socials, .mini-stats {
+
+      .categories,
+      .stories,
+      .socials,
+      .highlights,
+      .mini-stats {
         grid-template-columns: 1fr;
       }
-      .hero-card, .panel, .category-card, .story-card, .social-card, .contact-card, .video-card {
+
+      .hero-card,
+      .panel,
+      .category-card,
+      .story-card,
+      .social-card,
+      .contact-card,
+      .video-card,
+      .highlight-card {
         padding: 20px;
       }
-      .video-card iframe { min-height: 260px; }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      .brand-logo-box {
+        width: 62px;
+        height: 62px;
+      }
+
+      .video-card iframe {
+        min-height: 250px;
+      }
     }
   </style>
 </head>
 <body>
   <header class="topbar">
     <div class="container nav">
-      <a class="brand" href="#anasayfa">
-        <div class="brand-badge"><img src="logo.png" alt="Asya & Robi Akademi Logo" style="width:100%;height:100%;object-fit:contain;"/></div>
-      <div>
-          <div>Asya & Robi Akademi</div>
-          <small style="color: var(--muted); font-weight: 500;">Eğlenerek öğrenmenin dijital dünyası</small>
+      <a class="brand" href="#anasayfa" aria-label="Asya & Robi Akademi anasayfa">
+        <div class="brand-logo-box">
+          <img
+            src="logo.png"
+            alt="Asya & Robi Akademi Logo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="brand-fallback">AR</div>
+        </div>
+
+        <div class="brand-text">
+          <div class="brand-title">Asya & Robi Akademi</div>
+          <div class="brand-subtitle">Eğlenerek öğrenmenin dijital dünyası</div>
         </div>
       </a>
+
       <nav class="nav-links">
         <a href="#icerikler">İçerikler</a>
         <a href="#videolar">Videolar</a>
         <a href="#biz-kimiz">Biz Kimiz?</a>
-        <a href="#hikaye">Kuruluş Hikâyesi</a>
+        <a href="#hikaye">Hikâyemiz</a>
         <a href="#sosyal-medya">Sosyal Medya</a>
         <a href="#iletisim" class="nav-cta">İletişim</a>
       </nav>
@@ -395,18 +590,37 @@
       <div class="container hero-grid">
         <div class="hero-card">
           <div class="eyebrow">🎓 Eğitici içerik • Eğlenceli anlatım • Güçlü dijital marka</div>
-          <h1>Asya & Robi Akademi için modern, sıcak ve etkileyici bir dijital vitrin</h1>
-          <p>
-
+          <h1>Çocuklar için sıcak, renkli ve güven veren bir öğrenme dünyası</h1>
+          <p class="lead">
+            Asya & Robi Akademi; çocukların öğrenirken keyif almasını sağlayan, ailelerin güvenle takip edebileceği,
+            eğitimi dijital dünyanın diliyle buluşturan özel bir içerik platformudur.
           </p>
+
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://www.youtube.com/@AsyaRobiAkademi" target="_blank" rel="noopener noreferrer">YouTube Kanalına Git</a>
-            <a class="btn btn-secondary" href="#videolar">Videoları İncele</a>
+            <a class="btn btn-primary" href="https://www.youtube.com/@AsyaRobiAkademi" target="_blank" rel="noopener noreferrer">
+              YouTube Kanalına Git
+            </a>
+            <a class="btn btn-secondary" href="#videolar">
+              Videoları İncele
+            </a>
+          </div>
+
+          <div class="tag-list">
+            <span class="tag">Masallar</span>
+            <span class="tag">Şarkılı Öğrenme</span>
+            <span class="tag">Ders Anlatımları</span>
+            <span class="tag">Etkileşimli İçerikler</span>
           </div>
         </div>
 
         <aside class="panel">
-          <h3>Öne çıkan alanlar</h3>
+          <div>
+            <h3>Öne çıkan alanlar</h3>
+            <p>
+              Kanalın güçlü yönlerini tek bakışta sunan kısa bir özet alanı.
+            </p>
+          </div>
+
           <div class="mini-stats">
             <div class="stat">
               <strong>175+</strong>
@@ -421,14 +635,55 @@
               <span>Ana içerik kategorisi</span>
             </div>
             <div class="stat">
-              <strong>1</strong>
-              <span></span>
+              <strong>%100</strong>
+              <span>Çocuk odaklı anlatım</span>
             </div>
           </div>
-          <p>
-          
-          </p>
+
+          <div class="panel-note">
+            Öğretici, sıcak ve güvenilir bir dijital marka görünümü için sade ama etkileyici bir tasarım dili kullanıldı.
+          </div>
         </aside>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Neden Asya & Robi Akademi?</h2>
+            <p>
+              Sadece video sunan bir kanal değil; çocukların dikkatini yakalayan, öğrenmeyi kolaylaştıran
+              ve ailelerin güvenle yönlendirebileceği güçlü bir dijital içerik markası.
+            </p>
+          </div>
+        </div>
+
+        <div class="highlights">
+          <article class="highlight-card">
+            <div class="icon">🌟</div>
+            <h3>Güven Veren Marka Yapısı</h3>
+            <p>Temiz tasarım, güçlü metinler ve sıcak görsel dil ile profesyonel bir ilk izlenim sunar.</p>
+          </article>
+
+          <article class="highlight-card">
+            <div class="icon">🧒</div>
+            <h3>Çocuklara Uygun Dil</h3>
+            <p>İçerik yapısı çocukların dikkat süresine, öğrenme hızına ve ilgi alanlarına uygun düşünülmüştür.</p>
+          </article>
+
+          <article class="highlight-card">
+            <div class="icon">📱</div>
+            <h3>Mobil Uyumlu Deneyim</h3>
+            <p>Telefon, tablet ve bilgisayarda rahat görüntülenen modern bir arayüz sağlar.</p>
+          </article>
+
+          <article class="highlight-card">
+            <div class="icon">🚀</div>
+            <h3>Büyümeye Hazır Altyapı</h3>
+            <p>Yeni videolar, yeni bölümler ve ek sosyal medya bağlantıları kolayca eklenebilir.</p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -437,7 +692,9 @@
         <div class="section-head">
           <div>
             <h2>İçerik Dünyamız</h2>
-            <p>Çocukların ilgisini çeken, öğretirken eğlendiren ve akılda kalıcılığı artıran içerik başlıkları.</p>
+            <p>
+              Çocukların ilgisini çeken, öğretirken eğlendiren ve kalıcı öğrenmeyi destekleyen içerik başlıkları.
+            </p>
           </div>
         </div>
 
@@ -445,22 +702,33 @@
           <article class="category-card">
             <div class="icon">🎵</div>
             <h3>Şarkılarla Öğreniyorum</h3>
-            <p>Ritim, tekrar ve eğlence ile konuların daha kalıcı hale gelmesini sağlayan öğretici müzik içerikleri.</p>
+            <p>
+              Ritim, tekrar ve eğlence ile bilgilerin daha akılda kalıcı hale gelmesini sağlayan öğretici müzik içerikleri.
+            </p>
           </article>
+
           <article class="category-card">
             <div class="icon">📚</div>
             <h3>Masallarla Öğreniyorum</h3>
-            <p>Hayal gücünü besleyen, değerler eğitimi ve farkındalık oluşturan eğitici hikâye anlatımları.</p>
+            <p>
+              Hayal gücünü geliştiren, değerler eğitimi ve farkındalık oluşturan hikâye anlatımları.
+            </p>
           </article>
+
           <article class="category-card">
             <div class="icon">🎧</div>
             <h3>Konu Dinleyerek Öğreniyorum</h3>
-            <p>Ders konularını sade, akıcı ve yaş grubuna uygun şekilde aktaran anlatım serileri.</p>
+            <p>
+              Ders konularını sade, anlaşılır ve yaş grubuna uygun biçimde anlatan içerik serileri.
+            </p>
           </article>
+
           <article class="category-card">
             <div class="icon">🧠</div>
             <h3>Bil Bakalım</h3>
-            <p>Soru-cevap, tahmin ve oyunlaştırma ile çocukların aktif katılımını destekleyen interaktif bölümler.</p>
+            <p>
+              Soru-cevap ve oyunlaştırma ile çocukların aktif katılımını destekleyen eğlenceli bölümler.
+            </p>
           </article>
         </div>
       </div>
@@ -471,15 +739,26 @@
         <div class="section-head">
           <div>
             <h2>Videoları Siteden İzle</h2>
-            <p>Aşağıdaki videolara tıklayarak sayfa içinden izleyebilirsin. Yeni videolar geldikçe listeyi kolayca güncelleyebilirsin.</p>
+            <p>
+              Aşağıdaki videolara tıklayarak sayfa içinden izleyebilirsin. Yeni videolar geldikçe listeyi kolayca güncelleyebilirsin.
+            </p>
           </div>
         </div>
 
         <div class="video-grid">
           <div class="video-card">
-            <h3 id="videoTitle">Seçili Video</h3>
-            <p id="videoDescription">Varsayılan olarak kanalın öne çıkan videolarından biri yüklüdür.</p>
-            <iframe id="videoFrame" src="https://www.youtube.com/embed/Fji2ZZEH4bk" title="Asya & Robi Akademi Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <h3 id="videoTitle">Ramazan Masalları | 1. Gün</h3>
+            <p id="videoDescription">
+              Asya ve Robi ile çocuklara özel anlamlı ve eğitici hikâye serisi.
+            </p>
+
+            <iframe
+              id="videoFrame"
+              src="https://www.youtube.com/embed/Fji2ZZEH4bk"
+              title="Asya & Robi Akademi Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
           </div>
 
           <div class="video-list" id="videoList">
@@ -487,18 +766,22 @@
               <small>Öne Çıkan</small>
               Ramazan Masalları | 1. Gün
             </div>
+
             <div class="video-item" data-id="xUJ4-XPFLeA" data-title="Dörder Çarpım Tablosu" data-description="Matematiği şarkı ile sevdiren öğretici ve akılda kalıcı içerik.">
               <small>Matematik</small>
               Dörder Çarpım Tablosu
             </div>
+
             <div class="video-item" data-id="_3Qq8in9VcY" data-title="Kırmızı Başlıklı Kız ve Robi" data-description="Zaman yönetimi ve sorumluluk temalı masal anlatımı.">
               <small>Masal</small>
               Kırmızı Başlıklı Kız ve Robi
             </div>
+
             <div class="video-item" data-id="WwYQ9MC0aZA" data-title="Dünya Su Günü Hikâyesi" data-description="Su tasarrufu ve farkındalık odaklı özel içerik.">
               <small>Farkındalık</small>
               Dünya Su Günü Hikâyesi
             </div>
+
             <div class="video-item" data-id="7mtwrviSJ1E" data-title="Çarpım Tablosu Oyunu" data-description="Süre baskılı, eğlenceli ve etkileşimli soru-cevap formatı.">
               <small>Oyunlaştırma</small>
               Çarpım Tablosu Oyunu
@@ -513,7 +796,9 @@
         <div class="section-head">
           <div>
             <h2>Biz Kimiz?</h2>
-            <p>Bir YouTube kanalından daha fazlası: çocuklara dokunan, öğretmeyi keyifli hale getiren bir öğrenme yolculuğu.</p>
+            <p>
+              Bir YouTube kanalından daha fazlası: çocuklara dokunan, öğretmeyi keyifli hale getiren bir öğrenme yolculuğu.
+            </p>
           </div>
         </div>
 
@@ -525,6 +810,7 @@
               Dijital içerikleri; eğitimi daha sıcak, daha ulaşılabilir ve daha etkili kılan bir köprüye dönüştürmek.
             </p>
           </article>
+
           <article class="story-card">
             <h3>Misyonumuz</h3>
             <p>
@@ -541,7 +827,9 @@
         <div class="section-head">
           <div>
             <h2>Kuruluş Hikâyemiz</h2>
-            <p>.</p>
+            <p>
+              Eğlenirken öğrenme fikriyle başlayan bu yolculuk, bugün çocuklara yönelik güçlü bir dijital eğitim markasına dönüşüyor.
+            </p>
           </div>
         </div>
 
@@ -550,9 +838,10 @@
             <h3>Fikir Nasıl Doğdu?</h3>
             <p>
               Asya & Robi Akademi fikri, çocukların dijital dünyada geçirdiği zamanı daha nitelikli hale getirme isteğiyle doğdu.
-              “Hem eğlenceli olsun hem öğretici olsun” düşüncesi, bu markanın temel çıkış noktası oldu.
+              “Hem eğlenceli olsun hem öğretici olsun” düşüncesi, markanın temel çıkış noktasını oluşturdu.
             </p>
           </article>
+
           <article class="story-card">
             <h3>Neden Asya ve Robi?</h3>
             <p>
@@ -560,16 +849,18 @@
               Bu ikili; bilgi ile hayal gücünü aynı sahnede buluşturmak için tasarlandı.
             </p>
           </article>
+
           <article class="story-card">
             <h3>Neyi Farklı Yapıyoruz?</h3>
             <p>
               Sadece konu anlatmıyoruz; hikâyeleştiriyor, ritimle destekliyor, oyunlaştırıyor ve çocukların dikkatini dijital çağın diline uygun biçimde yakalıyoruz.
             </p>
           </article>
+
           <article class="story-card">
             <h3>Gelecek Hedefimiz</h3>
             <p>
-              YouTube ile başlayan bu yolculuğu; web sitesi, sosyal medya, interaktif etkinlikler, dijital eğitim materyalleri ve daha büyük bir çocuk öğrenme ekosistemine dönüştürmek.
+              YouTube ile başlayan bu yolculuğu; web sitesi, sosyal medya, interaktif etkinlikler ve dijital eğitim materyalleri ile büyüyen kapsamlı bir öğrenme ekosistemine dönüştürmek.
             </p>
           </article>
         </div>
@@ -580,8 +871,10 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>Alt Başlık Önerileri</h2>
-            <p>.</p>
+            <h2>Bizi Güçlendiren Değerler</h2>
+            <p>
+              İçerik üretim yaklaşımımızı ve topluluğumuzla kurduğumuz bağı şekillendiren temel noktalar.
+            </p>
           </div>
         </div>
 
@@ -595,6 +888,7 @@
               <li>Aile dostu dijital deneyim</li>
             </ul>
           </article>
+
           <article class="story-card">
             <h3>Kime Hitap Ediyoruz?</h3>
             <ul>
@@ -604,6 +898,7 @@
               <li>Eğitici dijital içerik arayan herkes</li>
             </ul>
           </article>
+
           <article class="story-card">
             <h3>Neler Sunuyoruz?</h3>
             <ul>
@@ -613,13 +908,14 @@
               <li>İnteraktif soru-cevap içerikleri</li>
             </ul>
           </article>
+
           <article class="story-card">
             <h3>Birlikte Büyüyoruz</h3>
             <ul>
               <li>Abone topluluğu</li>
               <li>Sosyal medya etkileşimi</li>
               <li>Yeni seri önerileri</li>
-              <li>Gelecekte mobil/oyunlaştırılmış projeler</li>
+              <li>Gelecekte oyunlaştırılmış projeler</li>
             </ul>
           </article>
         </div>
@@ -631,7 +927,9 @@
         <div class="section-head">
           <div>
             <h2>Sosyal Medyada Biz</h2>
-            <p>Kanalın görünürlüğünü artırmak için tüm dijital bağlantıları tek sayfada topluyoruz.</p>
+            <p>
+              Kanalın görünürlüğünü artırmak için tüm dijital bağlantıları tek sayfada topluyoruz.
+            </p>
           </div>
         </div>
 
@@ -642,19 +940,27 @@
             <p>Video içeriklerin ana merkezi. Yeni bölümler, şarkılar, masallar ve öğretici videolar burada.</p>
             <span>Kanalı ziyaret et</span>
           </a>
+
           <a class="social-card" href="https://www.instagram.com/yigitertasarim" target="_blank" rel="noopener noreferrer">
             <div class="icon">📸</div>
             <h3>Instagram</h3>
-            <p>Reels, kısa kesitler, duyurular ve daha fazlası için.</p>
-            <span>Instagram Hesabımızı Ziyaret Edin</span>
+            <p>Reels, kısa kesitler, duyurular ve daha fazlası için sosyal medya görünürlüğü alanı.</p>
+            <span>Instagram hesabına git</span>
           </a>
-         
+
           <a class="social-card" href="mailto:asyarobiakademi@gmail.com">
             <div class="icon">✉️</div>
             <h3>E-posta</h3>
-            <p>İş birlikleri, öneriler, geri bildirimler ve iletişim talepleri için profesyonel iletişim kanalı.</p>
-            <span>Aklınızdaki sorular için bize mail atabilirsiniz</span>
+            <p>İş birlikleri, öneriler, geri bildirimler ve profesyonel iletişim talepleri için doğrudan ulaşım kanalı.</p>
+            <span>Bize e-posta gönder</span>
           </a>
+
+          <article class="social-card">
+            <div class="icon">💡</div>
+            <h3>Yeni Platformlar</h3>
+            <p>İleride TikTok, Facebook veya özel içerik sayfaları gibi yeni alanlar kolayca eklenebilir.</p>
+            <span>Büyümeye hazır yapı</span>
+          </article>
         </div>
       </div>
     </section>
@@ -664,34 +970,48 @@
         <article class="contact-card">
           <h2>İletişim</h2>
           <p>
-  
+            İş birliği, öneri, geri bildirim ve içerik projeleri için bizimle iletişime geçebilirsiniz.
           </p>
           <p><strong>E-posta:</strong> asyarobiakademi@gmail.com</p>
           <p><strong>Konum:</strong> Türkiye</p>
         </article>
 
-   
+        <article class="contact-card">
+          <h2>Marka Hakkında</h2>
+          <p>
+            Asya & Robi Akademi, çocuklara yönelik eğitici dijital içerikleri sıcak anlatım dili ve güven veren sunum anlayışıyla bir araya getirir.
+          </p>
+          <p>
+            Web sitesi, kanalın kurumsal görünümünü güçlendirmek ve ziyaretçilere daha düzenli bir deneyim sunmak için hazırlanmıştır.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
 
   <footer class="footer">
     <div class="container footer-box">
       <div>
-        <strong>Asya & Robi Akademi</strong>
-        <div>Çocuklar için eğlenceli ve öğretici dijital dünya</div>
+        <div class="footer-title">Asya & Robi Akademi</div>
+        <div class="footer-copy">Çocuklar için eğlenceli ve öğretici dijital dünya</div>
       </div>
-      <div>© 2026 Tüm hakları saklıdır.| KİŞİSEL VERİLERİNİZ KAYIT ALTINA ALINMAMAKTADIR.</div>
+
+      <div class="footer-copy">
+        © 2026 Tüm hakları saklıdır. | Kişisel verileriniz kayıt altına alınmamaktadır.
+      </div>
     </div>
   </footer>
 
   <script>
-    const videoItems = document.querySelectorAll('.video-item');
-    const frame = document.getElementById('videoFrame');
-    const title = document.getElementById('videoTitle');
-    const description = document.getElementById('videoDescription');
+    const videoItems = document.querySelectorAll(".video-item");
+    const frame = document.getElementById("videoFrame");
+    const title = document.getElementById("videoTitle");
+    const description = document.getElementById("videoDescription");
 
-    videoItems.forEach(item => {
-      item.addEventListener('click', () => {
-        videoItems.forEach(v => v.classList.remove('active'));
-        item.classList.add('active');
+    videoItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        videoItems.forEach((v) => v.classList.remove("active"));
+        item.classList.add("active");
 
         const id = item.dataset.id;
         const text = item.dataset.title;
